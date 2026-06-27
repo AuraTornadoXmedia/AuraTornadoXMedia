@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Tornado XMedia</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    color: gold;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: 1s ease;
+}
+
+/* ================= GLOBAL ================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: #000;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-logo {
+    font-weight: bold;
+    color: gold;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: gold;
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom right, #000, #111);
+    padding-top: 70px;
+}
+
+.logo {
+    width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.3);
+}
+
+h1 {
+    color: gold;
+    font-size: 45px;
+    margin: 10px 0;
+}
+
+p {
+    color: gold;
+    opacity: 0.9;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    padding: 12px 25px;
+    background: gold;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+/* ================= SECTIONS ================= */
+section {
+    padding: 80px 40px;
+}
+ 
+/* ================= ABOUT ================= */
+ .about{
+    background:#0d0d0d;
+    text-align:center;
+}
+
+.about h2{
+    color:gold;
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.about p{
+    max-width:950px;
+    margin:auto;
+    color:white;
+    line-height:1.9;
+    font-size:18px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.about-box{
+    background:#181818;
+    border:1px solid gold;
+    border-radius:12px;
+    padding:30px;
+    transition:.3s;
+}
+
+.about-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(255,215,0,.3);
+}
+
+.about-box i{
+    color:gold;
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.about-box h3{
+    color:gold;
+}
+
+
+.about h2 {
+    color: gold;
+    font-size: 40px;
+}
+
+/* ================= SERVICES ================= */
+.services {
+    background: #111;
+    text-align: center;
+}
+
+.services h2 {
+    color: gold;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.service-card {
+    background: #1c1c1c;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    border: 1px solid gold;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+
+.service-card i {
+    color: gold;
+    margin-right: 10px;
+    .service-card h3{
+    color: gold;
+    margin-bottom: 15px;
+}
+
+.service-card ul{
+    margin: 0;
+    padding-left: 20px;
+}
+
+.service-card li{
+    color: white;
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+}
+
+/* ================= WHY US ================= */
+.why {
+    background: #0f0f0f;
+    text-align: center;
+}
+
+.why h2 {
+    color: gold;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+ .why-card{
+    background:#1c1c1c;
+    border:1px solid gold;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+    cursor:pointer;
+}
+
+.why-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 25px rgba(255,215,0,.35);
+    border-color:white;
+}
+
+.why-card i{
+    color:gold;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.why-card h3{
+    color:gold;
+    margin-bottom:12px;
+}
+
+.why-card p{
+    color:#ddd;
+    line-height:1.7;
+}
+.why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+
+.why-card i {
+    color: gold;
+    font-size: 30px;
+}
+
+/* ================= PORTFOLIO ================= */
+.portfolio {
+    background: #0d0d0d;
+    text-align: center;
+}
+
+.portfolio h2 {
+    color: gold;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+ .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.portfolio-item {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+ .portfolio-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    border-radius: 12px;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* ================= CONTACT ================= */
+.contact {
+    background: #111;
+    text-align: center;
+}
+
+.contact h2 {
+    color: gold;
+    font-size: 40px;
+}
+
+.stats{
+    background:#0a0a0a;
+    padding:80px 40px;
+    text-align:center;
+}
+
+.stats h2{
+    color:gold;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat-box{
+    background:#1a1a1a;
+    border:1px solid gold;
+    border-radius:15px;
+    padding:30px;
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(255,215,0,.3);
+}
+
+.stat-box i{
+    color:gold;
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.stat-box h3{
+    color:gold;
+    font-size:34px;
+    margin:10px 0;
+}
+
+.stat-box p{
+    color:#ddd;
+}
+/* ================= RESPONSIVE ================= */
+ 
+@media (max-width:768px){
+
+    h1{
+        font-size:30px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:60px;
+        right:0;
+        width:220px;
+        display:none;
+        flex-direction:column;
+        background:black;
+        border-left:2px solid gold;
+        padding:15px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+    <h2>Aura Tornado XMedia</h2>
+</div>
+
+<!-- NAVBAR -->
+ <nav class="navbar">
+    <div class="nav-logo">Aura Tornado XMedia</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <img src="images/logo.jpeg" class="logo">
+        <h1>Aura Tornado XMedia</h1>
+ <button class="btn" onclick="openWhatsApp()">Book a Service</button>
+    </div>
+</section>
+
+<!-- ABOUT -->
+ <section id="about" class="about">
+
+    <h2>About Aura Tornado XMedia</h2>
+
+    <p>
+        <strong>Aura Tornado XMedia</strong> is a creative media and business solutions company
+        committed to helping businesses, entrepreneurs, organizations and individuals build
+        powerful brands through professional photography, videography, graphic design,
+        digital marketing and business support services.
+
+        Since our establishment, we have proudly delivered creative services across
+        Polokwane, Mankweng, Ga-Mothiba, Solomondale, Makotopong and surrounding communities,
+        helping businesses grow with modern branding and high-quality visual content.
+
+        Our mission is to provide affordable, professional and innovative creative solutions
+        while building long-term relationships with every client we serve.
+
+        Whether you need branding, business registration, promotional content,
+        event photography or complete marketing support,
+        Aura Tornado XMedia is ready to bring your vision to life.
+    </p>
+
+    <div class="about-grid">
+
+        <div class="about-box">
+            <i class="fa-solid fa-bullseye"></i>
+            <h3>Our Mission</h3>
+
+            <p>
+                To empower businesses and individuals through
+                affordable, creative and professional media solutions
+                that produce real results.
+            </p>
+        </div>
+
+        <div class="about-box">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Our Vision</h3>
+
+            <p>
+                To become one of South Africa's leading creative media
+                agencies recognised for innovation,
+                professionalism and outstanding customer service.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<!-- SERVICES -->
+<section id="services" class="services">
+
+    <h2>Our Services</h2>
+las
+ ><div class="service-card">
+    <h3><i class="fa-solid fa-pen-nib"></i> Graphic Design</h3>
+
+    <ul>
+        <li>Posters & Flyers</li>
+        <li>Logo Design</li>
+        <li>Menus</li>
+        <li>Business Cards</li>
+        <li>Company Profiles</li>
+        <li>Price Lists</li>
+        <li>Quotations & Invoices</li>
+        <li>Sponsorship Forms</li>
+    </ul>
+</div>  
+<div class="service-card">
+    <h3><i class="fa-solid fa-bullhorn"></i> Social Media & Marketing</h3>
+
+    <ul>
+        <li>Social Media Content</li>
+        <li>Weekly Promotions</li>
+        <li>Event & Gig Promotion</li>
+        <li>Facebook, Instagram & TikTok Content</li>
+        <li>Branding & Marketing Strategies</li>
+    </ul>
+</div>
+ <div class="service-card">
+    <h3><i class="fa-solid fa-box"></i> Packaging & Printing</h3>
+
+    <ul>
+        <li>Sticker Labels</li>
+        <li>Product Labels</li>
+        <li>Packaging Design</li>
+        <li>Printing Services</li>
+    </ul>
+</div>
+ <div class="service-card">
+    <h3><i class="fa-solid fa-camera"></i> Media Services</h3>
+
+    <ul>
+        <li>Photography</li>
+        <li>Videography</li>
+        <li>Event Coverage</li>
+    </ul>
+</div>
+ <div class="service-card">
+    <h3><i class="fa-solid fa-building"></i> Business Solutions</h3>
+
+    <ul>
+        <li>Company Registration (CIPC)</li>
+        <li>Business Deregistration</li>
+        <li>Annual Returns Assistance</li>
+        <li>Company Name Reservation</li>
+        <li>Company Profile Development</li>
+        <li>Mission & Vision Statements</li>
+        <li>Business Plan Assistance</li>
+        <li>SARS eFiling Assistance</li>
+        <li>Tax Compliance Status Assistance</li>
+        <li>Google Maps Business Setup</li>
+    </ul>
+</div>
+ <div class="service-card">
+    <h3><i class="fa-solid fa-file-lines"></i> Professional Documents</h3>
+
+    <ul>
+        <li>CV Design</li>
+        <li>Portfolios</li>
+        <li>eBooks</li>
+        <li>Digital Catalogues</li>
+        <li>Letterheads</li>
+    </ul>
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+
+    <h2>Our Portfolio</h2>
+    <div style="text-align:center; margin-bottom:20px;">
+    <button onclick="filter('all')" class="btn">All</button>
+    <button onclick="filter('photo')" class="btn">Photography</button>
+    <button onclick="filter('design')" class="btn">Design</button>
+</div>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item photo" onclick="openLightbox('images/p1.jpeg')">
+        <img src="images/p1.jpeg" alt="Photography 1">
+    </div>
+
+    <div class="portfolio-item photo" onclick="openLightbox('images/p2.jpeg')">
+        <img src="images/p2.jpeg" alt="Photography 2">
+    </div>
+
+    <div class="portfolio-item design" onclick="openLightbox('images/p3.jpeg')">
+        <img src="images/p3.jpeg" alt="Design 1">
+    </div>
+
+    <div class="portfolio-item design" onclick="openLightbox('images/p4.jpeg')">
+        <img src="images/p4.jpeg" alt="Design 2">
+    </div>
+
+    <div class="portfolio-item photo" onclick="openLightbox('images/p5.jpeg')">
+        <img src="images/p5.jpeg" alt="Photography 3">
+    </div>
+
+    <div class="portfolio-item design" onclick="openLightbox('images/p6.jpeg')">
+        <img src="images/p6.jpeg" alt="Design 3">
+    </div>
+
+</div>   
+
+    </div>
+
+</section>
+
+<!-- WHY US -->
+ <section id="why" class="why">
+
+    <h2>Why Choose Aura Tornado XMedia?</h2>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Fast Delivery</h3>
+            <p>Quick turnaround without compromising quality.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-star"></i>
+            <h3>Premium Quality</h3>
+            <p>Professional designs and media that leave a lasting impression.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-wallet"></i>
+            <h3>Affordable Pricing</h3>
+            <p>High-quality services at prices that suit individuals and businesses.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-handshake"></i>
+            <h3>Client Focused</h3>
+            <p>Your vision comes first. We work closely with every client.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-lightbulb"></i>
+            <h3>Creative Ideas</h3>
+            <p>Fresh concepts that help your brand stand out.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-users"></i>
+            <h3>Trusted by Clients</h3>
+            <p>Serving businesses and individuals across Limpopo with pride.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-camera-retro"></i>
+            <h3>Modern Equipment</h3>
+            <p>Professional photography, videography and editing tools.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fa-solid fa-medal"></i>
+            <h3>Professional Service</h3>
+            <p>Reliable, friendly and committed to excellent customer satisfaction.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <h2>Our Achievements</h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-box">
+            <i class="fa-solid fa-camera"></i>
+            <h3>100+</h3>
+            <p>Projects Completed</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fa-solid fa-users"></i>
+            <h3>80+</h3>
+            <p>Happy Clients</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>10+</h3>
+            <p>Areas Served</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fa-solid fa-award"></i>
+            <h3>100%</h3>
+            <p>Commitment</p>
+        </div>
+
+    </div>
+
+</section>
+ <!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+     <p>
+Ready to bring your ideas to life? Whether you need professional photography,
+graphic design, branding, business registration or digital marketing,
+Aura Tornado XMedia is here to help. Contact us today and let's build something amazing together.
+</p>
+
+    <div style="margin-top:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:15px;">
+
+        <a href="https://wa.me/27695684999" target="_blank" 
+           style="background:green; padding:12px 20px; border-radius:8px; color:white; text-decoration:none;">
+           WhatsApp Us
+        </a>
+
+        <a href="tel:0695684999" 
+           style="background:gold; padding:12px 20px; border-radius:8px; color:black; text-decoration:none;">
+           Call Now
+        </a>
+
+        <a href="mailto:auratornadoxmedia@gmail.com" 
+           style="background:#333; padding:12px 20px; border-radius:8px; color:white; text-decoration:none;">
+           Email Us
+        </a>
+
+    </div>
+</section>
+
+ <footer style="background:#050505;padding:40px 20px;text-align:center;">
+
+<h2 style="color:gold;">Aura Tornado XMedia</h2>
+
+<p>
+Creative • Branding • Business Solutions
+</p>
+
+<div style="margin:25px 0;">
+
+<a href="https://wa.me/27695684999" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="https://facebook.com" target="_blank">
+<i class="fa-brands fa-facebook"></i>
+</a>
+
+<a href="https://instagram.com" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://tiktok.com" target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+</div>
+
+<p>
+© 2026 Aura Tornado XMedia. All Rights Reserved.
+</p>
+
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(img){
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = img;
+}
+</script>
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/27695684999" target="_blank"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:green;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 0 15px rgba(0,0,0,0.4);
+z-index:9999;">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+function openWhatsApp() {
+    window.open("https://wa.me/27695684999", "_blank");
+}
+ 
+</script>
+<script>
+window.addEventListener("load", function(){
+    const loader = document.getElementById("loader");
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 1000);
+});
+</script>
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+<script>
+function filter(category){
+    let items = document.querySelectorAll(".portfolio-item");
+
+    items.forEach(item => {
+        if(category === "all"){
+            item.style.display = "block";
+        } else {
+            if(item.classList.contains(category)){
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        }
+    });
+}
+</script>
+</body>
+</html>
